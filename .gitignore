@@ -132,3 +132,6 @@ output/
 
 # Config files
 config.js
+
+# OS files
+.DS_Store
