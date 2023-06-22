@@ -67,7 +67,15 @@ const exportWorkersToFile = async () => {
 
 const runScript = async () => {
   console.log('Retrieving workers');
-  const workers = await getWorkersByExpression();
+  
+  let workers;
+  try {
+    workers = await getWorkersByExpression();
+  } catch (error) {
+    console.log('There was an error retrieving workers:');
+    console.log(`--${error.message}`);
+    return;
+  }
   console.log(`Retrieved ${workers.length} workers`);
 
   console.log('Populating worker metadata');
