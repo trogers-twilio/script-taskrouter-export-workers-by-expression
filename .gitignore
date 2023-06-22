@@ -126,3 +126,9 @@ dist
 # Output files
 *.csv
 *.xlsx
+
+# Output directory
+output/
+
+# Config files
+config.js
