@@ -17,7 +17,7 @@ const client = Twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
 const workersToExport = new Map();
 
 const getWorkersByExpression = async () => {
-  return client.taskrouter
+  return client.taskrouter.v1
     .workspaces(TASKROUTER_WORKSPACE_SID)
     .workers
     .list({
@@ -73,7 +73,7 @@ const runScript = async () => {
     workers = await getWorkersByExpression();
   } catch (error) {
     console.log('There was an error retrieving workers:');
-    console.log(`--${error.message}`);
+    console.log(`--${error.message}\n`);
     return;
   }
   console.log(`Retrieved ${workers.length} workers`);
